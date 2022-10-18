@@ -74,4 +74,128 @@ Integers_And_Strings_04(get_str_004)
 
 ### ============================ 数字の文字列操作（0埋め） END
 
+### ============================ 数字の文字列操作（時刻1）
 
+def Integers_And_Strings_05(get_list_05 = []):
+    del get_list_05[2]
+        
+    a_arr = []
+    b_arr = []
+        
+    for i in range(4):
+        if i <= 1:
+            a_arr.append(get_list_05[i])
+        else :
+            b_arr.append(get_list_05[i])
+    
+    if '0' == a_arr[0]:
+        print(a_arr[1])
+    else:
+        print(a_arr[0] + a_arr[1])
+        
+    if '0' == b_arr[0]:
+        print(b_arr[1])
+    else:
+        print(b_arr[0] + b_arr[1])
+        
+### ========= Integers_And_Strings_05 
+
+get_list_05 = list(input())
+Integers_And_Strings_05(get_list_05)
+
+
+### ============================  数字の文字列操作（時刻1） END
+
+
+### ============================ 数字の文字列操作（時刻1）
+
+# 与えられた時刻の 30 分後 を出力
+
+def Integers_And_Strings_06(get_list_06 = []):
+    del get_list_06[2]
+    
+    a_arr = []
+    b_arr = []
+    
+    tmp_s = ''
+    
+    # === a_arr, get_list_06[0] , [1]    b_arr, get_list_06[2] , [3] 
+    for i in range(4):
+        if i <= 1:
+            a_arr.append(get_list_06[i])
+        else :
+            b_arr.append(get_list_06[i])
+            
+    if b_arr[0] == '3':
+        a_arr[1] = int(a_arr[1]) + 1
+        tmp_s = '0'
+    elif b_arr[0] == '4':
+        a_arr[1] = int(a_arr[1]) + 1
+        tmp_s = '1'
+    elif b_arr[0] == '5':
+        a_arr[1] = int(a_arr[1]) + 1
+        tmp_s = '2'
+    else :
+        b_arr[0] = int(b_arr[0]) + 3
+    
+    if not tmp_s:
+        print(a_arr[0] + str(a_arr[1]) + ":" + str(b_arr[0]) + b_arr[1])
+    else:
+        print(a_arr[0] + str(a_arr[1]) + ":" + tmp_s + b_arr[1])
+    
+        
+### ============= 実行
+get_list_06 = list(input())
+
+Integers_And_Strings_06(get_list_06)
+
+### ============================ 数字の文字列操作（時刻1） END
+
+### ============================ 文字列 final
+
+def Integers_And_Strings_07(get_num_07):
+    for i in range(get_num_07):
+        ### 値取得
+        [time_str, h_s, m_s] = input().split()
+        
+        ### 時間を分割
+        time_l = int(time_str[:2])
+        time_r = int(time_str[3:])
+        
+        ### int 型へ変換
+        h_s = int(h_s)
+        m_s = int(m_s)
+        
+        ### 時間計算
+        ans_h = time_l + h_s # 時
+        ans_m = time_r + m_s # 分
+        
+        ### 分が 60 以上だったら
+        if ans_m >= 60:
+            ans_h += 1
+            ans_m -= 60
+        
+        ### 時間 24 => 0 計算
+        if ans_h >= 24:
+            ans_h -= 24
+            
+        ### int => str パース
+        ans_h = str(ans_h)
+        ans_m = str(ans_m)
+        
+        ### 0 埋め
+        if len(ans_h) == 1:
+            ans_h = "0" + ans_h
+        if len(ans_m) == 1:
+            ans_m = "0" + ans_m
+            
+        ####### 結果出力
+        print(ans_h + ":" + ans_m)
+        
+
+### ============ Integers_And_Strings_07 実行  
+### ループ回数
+get_num_07 = int(input())
+Integers_And_Strings_07(get_num_07)
+
+### ============================ 文字列 END
